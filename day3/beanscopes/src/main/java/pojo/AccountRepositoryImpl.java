@@ -1,7 +1,8 @@
-package annotation.pojo;
+package pojo;
 
 import lombok.*;
 import org.springframework.stereotype.Repository;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,7 +11,6 @@ import java.util.Map;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Repository
 public class AccountRepositoryImpl implements AccountRepository {
 
     private Map<Long, Account> accountsMap=new HashMap<Long, Account>();

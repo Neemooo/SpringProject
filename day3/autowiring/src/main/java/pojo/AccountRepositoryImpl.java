@@ -1,7 +1,9 @@
-package annotation.pojo;
+package pojo;
 
 import lombok.*;
 import org.springframework.stereotype.Repository;
+
+import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,8 +15,11 @@ import java.util.Map;
 @Repository
 public class AccountRepositoryImpl implements AccountRepository {
 
-    private Map<Long, Account> accountsMap=new HashMap<Long, Account>();
+    private Map<Long, Account> accountsMap;
+
     {
+        accountsMap=new HashMap<Long, Account>();
+
        Account account1= Account.builder()
                 .id(1L)
                 .ownerName("John")
@@ -36,7 +41,6 @@ public class AccountRepositoryImpl implements AccountRepository {
 
     public void update(Account account) {
         accountsMap.put(account.getId(), account);
-
     }
 
     public Account find(long accountId) {

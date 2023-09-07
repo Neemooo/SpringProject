@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class BeanConfiguration {
+
     @Bean
     public AccountService accountService(){
         AccountServiceImpl bean= new AccountServiceImpl();
