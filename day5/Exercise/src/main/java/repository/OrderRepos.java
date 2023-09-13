@@ -14,4 +14,6 @@ import java.util.List;
 public interface OrderRepos extends JpaRepository<Order, Long> {
     @Query("FROM Order o WHERE FUNCTION('MONTH',o.orderDate) = :month")
     List<Order> findAllByOrderDate_Month(@Param("month") Integer month);
+
+    List<Order> findAllByOrderDetailProductName(String name);
 }

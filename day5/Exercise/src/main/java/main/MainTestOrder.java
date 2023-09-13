@@ -23,6 +23,7 @@ public static void main(String[] args) {
         System.out.println("Enter 3 to get an order and orderDetails by order id");
         System.out.println("Enter 4 to list all the orders in the current month");
         System.out.println("Enter 5 to list all orders which have total amount more than 1,000USD");
+        System.out.println("Enter 6 to list all orders buy Java book");
         System.out.println("Enter 0 to exit application");
        input=sc.nextLine();
 
@@ -66,6 +67,12 @@ public static void main(String[] args) {
             }
             case "5":{
                 findAllByPriceGreaterThan(1000.0);
+                break;
+            }
+            case "6":{
+                System.out.println("Enter product name");
+                String name=sc.nextLine();
+                findAllByProductName(name);
                 break;
             }
         }
@@ -136,6 +143,17 @@ public static void main(String[] args) {
                 System.out.println(order + " with total "+ total));
     } else {
             System.out.println("Not found list all orders which have total amount more than 1,000USD");
+    }
+    }
+
+//    Enter 6 to list all orders buy Java book
+    private static void findAllByProductName(String name){
+    List<Order> orders=orderRepos.findAllByOrderDetailProductName(name);
+    if(!orders.isEmpty()){
+        System.out.println(String.format("List all orders buy %s book", name));
+        System.out.println(orders);
+    } else {
+        System.out.println(String.format("Not found list all orders buy %s book", name));
     }
     }
 
